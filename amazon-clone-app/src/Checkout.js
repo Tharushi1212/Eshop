@@ -9,7 +9,7 @@ function Checkout(){
     return(
         <div className='checkout'>
             <div className='checkout__left'>
-
+{/* name */}
 
             {
                 basket.length == 0? (
