@@ -12,6 +12,9 @@ const currentUser = useAuth();
     return(
         <nav className='header'>
             <img className='header__logo' src={logo} alt='logo' />
+            <div  className='header__name'>
+                <h1>E shop</h1>
+            </div>
             
             <div className='header__nav'>
                 {/*1st link */}
