@@ -10,6 +10,8 @@ import Navlinks from './Navlinks';
 import Cart from './Cart';
 import { CartProvider } from 'react-use-cart';
 import {useHistory} from 'react-router-dom'
+import React from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css'
 
 
 

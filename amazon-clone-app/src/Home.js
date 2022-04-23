@@ -1,67 +1,47 @@
-import React from 'react'
-import background from './Images/background.jpg'
-import vase from './Images/vase.jpg'
-import Product from './Product'
+import React,{useState} from 'react'
 import './Home.css'
 import ItemCard from './ItemCard'
+import dataSearch from './Header'
 import data from './data'
 
+
 const Home =()=>{
+
+    const [filter, setFilter] = useState('');
+    const searchText = (event) =>{
+    setFilter(event.target.value);
+    }
+
+    let dataSearch = data.productData.filter(item =>{
+    return Object.keys(item).some(key=>
+        item[key].toString().toLowerCase().includes(filter.toString().toLocaleLowerCase())
+        )
+            }
+    );
+
     return(
 
         <div className='home'>
-            
-            {/* <div className='home__row'>
-                
-                <Product
-                id='121314'
-                title='Porcilane flower vase with plastic flowers'
-                price={11.96}
-                image={vase}
-                />
-
-                <Product
-                id='121314'
-                title='The Lean Startup: How Conatant innovation'
-                price={11.96}
-                image={vase}
-                />
-
-                <Product
-                id='121314'
-                title='The Lean Startup: How Conatant innovation'
-                price={11.96}
-                image={vase}
-                />
-            </div>
-            <div className='home__row'>
-                <Product
-                id='121314'
-                title='Porcilane flower vase with plastic flowers'
-                price={11.96}
-                image={vase}
-                />
-
-                <Product
-                id='121314'
-                title='The Lean Startup: How Conatant innovation'
-                price={11.96}
-                image={vase}
-                />
-
-                <Product
-                id='121314'
-                title='The Lean Startup: How Conatant innovation'
-                price={11.96}
-                image={vase}
-                />
-            </div> */}
-
 
             <h1 className='text-center mt-3'>All Items</h1>
             <section className='py-4 container'>
                 <div className='row justify-content-center'>
-                    {data.productData.map((item, index)=>{
+                {/* search bar */}
+                <div className='col-12 mb-5'>
+                    <div className='mb-3 col-4 mx-auto text-center'>
+                        <h1 className='from-lable h4'>Search</h1>
+                         <input 
+                            type='text' 
+                            className='from-control'
+                            value={filter}
+                            onChange={searchText.bind(this)}
+                            
+                />&nbsp;
+                </div>
+
+            </div>
+
+                    {dataSearch.map((item, index)=>{
                         return(
                             <ItemCard 
                             img={item.img}  
