@@ -3,12 +3,15 @@ import background from './Images/background.jpg'
 import vase from './Images/vase.jpg'
 import Product from './Product'
 import './Home.css'
+import ItemCard from './ItemCard'
+import data from './data'
 
-function Home(){
+const Home =()=>{
     return(
+
         <div className='home'>
-            <img className='home__image' alt='' src={background} />
-            <div className='home__row'>
+            
+            {/* <div className='home__row'>
                 
                 <Product
                 id='121314'
@@ -52,7 +55,29 @@ function Home(){
                 price={11.96}
                 image={vase}
                 />
-            </div>
+            </div> */}
+
+
+            <h1 className='text-center mt-3'>All Items</h1>
+            <section className='py-4 container'>
+                <div className='row justify-content-center'>
+                    {data.productData.map((item, index)=>{
+                        return(
+                            <ItemCard 
+                            img={item.img}  
+                            title={item.title} 
+                            desc={item.desc} 
+                            price={item.price}
+                            item={item} 
+                            key={index}
+                            />
+                        )
+                    })}
+                    
+                </div>
+                {/* <img className='home__image' alt='' src={background} /> */}
+            </section>
+
         </div>
     )
 }

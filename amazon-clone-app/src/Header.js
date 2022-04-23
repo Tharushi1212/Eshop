@@ -5,45 +5,34 @@ import './Header.css'
 import { Link } from '@material-ui/core'
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
 import { useStateValue } from './StateProvider'
+import { useAuth} from './firebase'
 
 function Header(){
-const [dispatch] = useStateValue();
-const [basket,setBasket] = useStateValue();
-console.log("my basket",basket)
+//const [dispatch] = useStateValue();
+//const [basket,setBasket] = useStateValue();
+//console.log("my basket",basket)
+const currentUser = useAuth();
 
     return(
         <nav className='header'>
             <img className='header__logo' src={logo} alt='logo' />
             <div className='header__search'>
-                <input type='text' className='header__searchInput'/>
+                <input type='text' className='header__searchInput'/>&nbsp;
                 <SearchIcon className='header__searchIcon'/>
 
             </div>
             <div className='header__nav'>
                 {/*1st link */}
-                <Link to='/' className='header__link'>
+                <a href ='/login' className='header__link'>
                 <div className='header__option'>
-                    <span className='header__optionLineOne'>Hello user</span>
-                    <span className='header__optionLineTwo'>Sign in</span>
+                    <span className='header__optionLineOne'>{currentUser?.email ? currentUser.email : "Hello user"}</span>
+                    <span className='header__optionLineTwo'>{currentUser?.email ? "Sign out":"Sign in"}</span>
                 </div>
-                </Link>
-                {/*2nd link */}
-                <Link to='/' className='header__link'>
-                <div className='header__option'>
-                    <span className='header__optionLineOne'>Returns</span>
-                    <span className='header__optionLineTwo'>Orders</span>
-                </div>
-                </Link>
+                </a>
+                
                 
             </div>
-            <Link to='/' className='header__link'>
-                {/*Basket icon with number */}
-                <div className='header__optionBasket'>
-                    <ShoppingBasketIcon/>
-                    {/* number of items in the basket*/}
-                    <span className='header__optionLineTwo header__productCount'>{basket?.length}</span>
-                </div>
-            </Link>
+            
         </nav>
     )
 }
