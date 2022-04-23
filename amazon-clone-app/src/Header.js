@@ -1,21 +1,12 @@
 import React from 'react'
 import logo from  './Images/logo.png'
-import SearchIcon from '@material-ui/icons/Search'
 import './Header.css'
-import { Link } from '@material-ui/core'
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
 import { useAuth} from './firebase'
-
 import './Home'
-import { initialState } from 'react-use-cart'
+
 
 const Header = () =>{
 
-
-
-//const [dispatch] = useStateValue();
-//const [basket,setBasket] = useStateValue();
-//console.log("my basket",basket)
 const currentUser = useAuth();
 
     return(

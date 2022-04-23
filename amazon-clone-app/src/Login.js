@@ -16,16 +16,16 @@ import {signup, logout, login, useAuth} from './firebase'
 
     async function handleLogin() {
         setLoading(true);
-       // try {
+       try {
           let data = await login(emailRef.current.value, passwordRef.current.value);
           console.log("login return data",data);          
           history.push("/");
           window.location.reload();
-       // } catch(error) {
-      //     alert("Error!");
-      //     console.log("Error",error);
-      //   }
-      //   setLoading(false);
+       } catch(error) {
+          alert("Error!");
+          console.log("Error",error);
+        }
+        setLoading(false);
        }
 
     async function handleSignup(){

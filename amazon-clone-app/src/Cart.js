@@ -1,7 +1,6 @@
-import { isEmpty } from '@firebase/util';
 import React from 'react'
 import { useCart } from 'react-use-cart'
-import ItemCard from './ItemCard';
+
 
 const Cart = () => {
 

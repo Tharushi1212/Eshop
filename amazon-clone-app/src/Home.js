@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import './Home.css'
 import ItemCard from './ItemCard'
-import dataSearch from './Header'
 import data from './data'
 
 
