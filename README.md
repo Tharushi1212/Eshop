@@ -2,7 +2,7 @@
 
 ## Set up
 
-1.cd EcommerceSite  - to change directory
+1. cd EcommerceSite - to change directory
 2. npm install   - to install the dependencies
 3.  npm start - to start the whole app
 
